@@ -1,3 +1,3 @@
-export const signin=async()=>{
+export const signin=async(req,res)=>{
     
 }
