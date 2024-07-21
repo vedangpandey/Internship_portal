@@ -1,18 +1,20 @@
-import User from "../models/user.model";
+import User from "../models/user.model.js";
 import bcrypt from 'bcryptjs'
-import generateTokenAndSetCookie from "../utils/generatToken";
+import generateTokenAndSetCookie from "../utils/generatToken.js";
 export const signin=async (req,res)=>{
     try {
-        const {username ,email, password ,confirmPassword}=req.body();
+        const {username ,email, password ,confirmPassword}=req.body;
+        console.log(`${username} ${email} ${password} ${confirmPassword}`);
         if(password!==confirmPassword)
             res.status(400).json({error:"Password don't match"})
-        const user=await User.findOne({userName});
+        const user=await User.findOne({username});
         if(user){
             return res.status(400).json({error:"username already exists"});
         }
         const salt=await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password,salt)
-
+        
+        
         const newUser=new User({
             username,
             email,
@@ -21,6 +23,7 @@ export const signin=async (req,res)=>{
 
         if(newUser){
             generateTokenAndSetCookie(newUser._id,res);
+            console.log(`${hashedPassword}`);
             await newUser.save();
             res.status(201).json({
                 _id:newUser._id,
@@ -55,7 +58,7 @@ export const login = async (req,res)=>{
         return res.status(500).json({error:"Internal Server Error"});
     }
 }
-export const logout =(req,res)=>{
+export const logout = (req,res)=>{
     try{
         res.cookie("jwt","",{maxAge: 0});
         res.status(200).json({message: "Logged out Succesfully"});
