@@ -12,13 +12,14 @@ const Internships = ({data,setData}) => {
        {internship_ids&& internship_ids.map((item)=>{
         const profile=internships.internships_meta[item]
         return (
-                  <div className='profile-card'>
+                  <div className='profile-card bg-white'>
                   <h2>{profile.profile_name}</h2>
                   <p><strong>Company Name:</strong>{profile.company_name}</p>
                   <p><strong>Stipend:</strong> {profile.stipend.salary}</p>
-                  <p><strong>Location:</strong> New York, USA</p>
-                  <p><strong>Duration:</strong> 6 months</p>
-                  <p><strong>Start Date:</strong> 1st August 2024</p>
+                  <p><strong>Location:</strong> {profile.location_names[0]?profile.location_names[0]:"Work From Home"}</p>
+                  <p><strong>Duration:</strong> {profile.duration}</p>
+                  <p><strong>Start Date:</strong>{profile.start_date}</p>
+                  <button className='bg-white border rounded-xl border-emerald-700 text-emerald-500 shadow-lg p-5'>Apply</button>
               </div>
 
         )
