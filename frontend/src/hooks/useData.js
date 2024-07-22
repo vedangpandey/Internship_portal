@@ -6,7 +6,7 @@ const useData = (url) => {
     const fetchData = async () => {
         const data = await fetch(url)
         const result = await data.json();
-        console.log(result);
+        console.log("Result ",result);
         setData(result)
     }
     useEffect(() => {
