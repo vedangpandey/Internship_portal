@@ -8,13 +8,12 @@ const Internships = ({data,setData}) => {
     const internship_ids=internships.internship_ids
     console.log(internship_ids);
   return (
-    <div>
-      holla
+    <div className='flex flex-wrap gap-4 h-full w-full'>
        {internship_ids&& internship_ids.map((item)=>{
         const profile=internships.internships_meta[item]
         return (
-                  <div>
-                  <h2>Profile Name</h2>
+                  <div className='profile-card'>
+                  <h2>{profile.profile_name}</h2>
                   <p><strong>Company Name:</strong>{profile.company_name}</p>
                   <p><strong>Stipend:</strong> {profile.stipend.salary}</p>
                   <p><strong>Location:</strong> New York, USA</p>
