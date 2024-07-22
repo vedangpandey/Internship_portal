@@ -16,7 +16,7 @@ const useSignup = () => {
 		setLoading(true);
 		try {
             
-			const res = await fetch("http://localhost:5000/api/signin", {
+			const res = await fetch("/api/signin", {
 				method: "POST",
                 mode: "cors",
 				headers: { "Content-Type": "application/json" },

@@ -12,7 +12,7 @@ const Internships = ({data,setData}) => {
        {internship_ids&& internship_ids.map((item)=>{
         const profile=internships.internships_meta[item]
         return (
-                  <div className='profile-card bg-white'>
+                  <div className='profile-card bg-white shadow-md'>
                   <h2>{profile.profile_name}</h2>
                   <p><strong>Company Name:</strong>{profile.company_name}</p>
                   <p><strong>Stipend:</strong> {profile.stipend.salary}</p>

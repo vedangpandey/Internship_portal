@@ -10,7 +10,7 @@ import { useAuthContext } from './context/AuthContext'
 function App() {
   const { authUser }=useAuthContext();
   return (
-    <div>
+    <div >
         <Routes>
           <Route path='/' element={authUser ? <Home /> : <Navigate to={"/login"} />} ></Route>
           </Routes>
