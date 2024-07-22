@@ -15,7 +15,7 @@ function resolveFile(fpath){
 
 const dataPath=path.join('dataset','opportunities.json');
 console.log(dataPath);
-router.get("/api/opportunities",async(req,res)=>{
+router.get("/opportunities",async(req,res)=>{
     try {
         const data=await resolveFile(dataPath)
         res.status(200).json(data)
