@@ -35,8 +35,7 @@ const DashBoard = () => {
         </div>)
         })
       }
-      {appliedOppurtunities.length ===0 && <div className='profile-card  bg-white shadow-md p-5'>
-        
+      {(appliedOppurtunities===undefined||appliedOppurtunities.length ===0) && <div className='profile-card  bg-white shadow-md p-5'>
         You have Not applied for any job.
         </div>}
       </div>
