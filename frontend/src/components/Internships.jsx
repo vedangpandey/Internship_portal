@@ -44,7 +44,7 @@ const Internships = ({data,setData}) => {
                   <p><strong>Location:</strong> {profile.location_names[0]?profile.location_names[0]:"Work From Home"}</p>
                   <p><strong>Duration:</strong> {profile.duration}</p>
                   <p><strong>Start Date:</strong>{profile.start_date}</p>
-                  <button className='bg-white border rounded-xl border-emerald-700 text-emerald-500 shadow-lg p-5' onClick={()=>applyForOppurtunity(profile,authUser,navigate)}>{isApplied?"Applied":"Apply"}</button>
+                  {isApplied?<button className='bg-white border rounded-xl border-emerald-700 text-emerald-500 shadow-lg p-5' >{"Applied"}</button>:<button className='bg-white border rounded-xl border-emerald-700 text-emerald-500 shadow-lg p-5' onClick={()=>applyForOppurtunity(profile,authUser,navigate)}>{"Apply"}</button>}
               </div>
 
         )
