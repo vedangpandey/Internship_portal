@@ -1,6 +1,7 @@
 import User from "../models/user.model.js";
 import bcrypt from 'bcryptjs'
 import generateTokenAndSetCookie from "../utils/generatToken.js";
+import AppliedOppurtunity from "../models/applied.model.js";
 export const signin=async (req,res)=>{
     try {
         const {username ,email, password ,confirmPassword}=req.body;
@@ -65,5 +66,25 @@ export const logout = (req,res)=>{
     }catch(error){
         console.log("Error in loging out ",error.message);
         res.status(500).json({error:"Internal Server Error "});
+    }
+}
+export const apply=async (req,res)=>{
+    try {
+        console.log(req.user)
+        const {oppurtunity} = req.body;
+        const applyOppurtunity = new AppliedOppurtunity({
+            userId:req.user.email,
+            id:oppurtunity.id,
+            profile_name:oppurtunity.profile_name,
+            stipend:oppurtunity.stipend.salary,
+            company_name:oppurtunity.company_name,
+            duration:oppurtunity.duration,
+            location_names:oppurtunity.location_names,
+        })
+        await applyOppurtunity.save();
+        res.status(201).json({message:"Oppurtunity applied successfully"})
+
+    } catch (error) {
+        res.status(500).json({erro:"Internal server error"})
     }
 }
