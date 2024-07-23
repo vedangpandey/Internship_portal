@@ -70,7 +70,6 @@ export const logout = (req,res)=>{
 }
 export const apply=async (req,res)=>{
     try {
-        console.log(req.user)
         const {oppurtunity} = req.body;
         const applyOppurtunity = new AppliedOppurtunity({
             userId:req.user.email,

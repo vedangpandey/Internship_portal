@@ -25,3 +25,8 @@ body {
 	margin: 10px 0;
 	color: #555;
 }
+.profile_details{
+	text-align: left;
+	display: grid;
+	gap: 20px;
+  }

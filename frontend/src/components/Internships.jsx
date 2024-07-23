@@ -7,27 +7,25 @@ const Internships = ({data,setData}) => {
     const url='api/opportunities'
     const internships = useData(url)
     const { authUser }=useAuthContext(); 
+    const [internship_ids,setIntership_ids]=useState([])
     const navigate=useNavigate()
-    // const internships_meta= internships.internships_meta
+    
     const [appliedOppurtunities,setAppliedOppurtunities] =  useState([])
     useEffect(()=>{
-      if(authUser)
+      if(authUser){
       fetchAppliedOppurtunities()
-    },[appliedOppurtunities])
+      setIntership_ids(internships.internship_ids)}
+    },[appliedOppurtunities,internship_ids])
     const fetchAppliedOppurtunities=async()=>{
       try {
         const response =await axios.get(`/api/applied-oppurtunities`)
-        console.log("response",response)
       setAppliedOppurtunities(response.data)
       } catch (error) {
         console.log(error)
       }
     }
 
-
-
-    const internship_ids=internships.internship_ids
-    console.log(internship_ids);
+    // console.log(internship_ids);
     
     
     

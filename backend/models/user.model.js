@@ -14,6 +14,14 @@ const userSchema=new mongoose.Schema({
         type: String,
         required: true,
     },
+    address:{
+        type:String,
+        default:""
+    },
+    dob:{
+        type:Date,
+        default:""
+    }
     
 });
 const User = mongoose.model("User",userSchema)
