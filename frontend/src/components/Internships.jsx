@@ -37,7 +37,7 @@ const Internships = ({data,setData}) => {
         const profile=internships.internships_meta[item]
         const isApplied =Array.isArray(appliedOppurtunities) && appliedOppurtunities.some(item=>item.id === profile.id)
         return (
-                  <div className='profile-card bg-white shadow-md'>
+                  <div className='profile-card bg-white shadow-md' key={item}>
                   <h2>{profile.profile_name}</h2>
                   <p><strong>Company Name:</strong>{profile.company_name}</p>
                   <p><strong>Stipend:</strong> {profile.stipend.salary}</p>
