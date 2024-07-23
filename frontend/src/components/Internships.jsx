@@ -7,14 +7,14 @@ const Internships = ({data,setData}) => {
     const url='api/opportunities'
     const internships = useData(url)
     const { authUser }=useAuthContext(); 
-    const [internship_ids,setIntership_ids]=useState([])
+    const internship_ids=internships.internship_ids;
     const navigate=useNavigate()
-    
     const [appliedOppurtunities,setAppliedOppurtunities] =  useState([])
     useEffect(()=>{
       if(authUser){
       fetchAppliedOppurtunities()
-      setIntership_ids(internships.internship_ids)}
+      }
+      
     },[appliedOppurtunities,internship_ids])
     const fetchAppliedOppurtunities=async()=>{
       try {
@@ -24,7 +24,6 @@ const Internships = ({data,setData}) => {
         console.log(error)
       }
     }
-
     // console.log(internship_ids);
     
     

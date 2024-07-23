@@ -99,7 +99,7 @@ const DashBoard = () => {
       </div>
       </div>
       <input type="hidden" value={password} />
-      <button type='submit'>Update</button>
+      <button type='submit' className='bg-white border rounded-xl border-emerald-700 text-emerald-500 shadow-lg p-5'>Update</button>
       </form>
         </div>
       </div>
