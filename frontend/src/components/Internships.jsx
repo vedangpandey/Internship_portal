@@ -13,7 +13,7 @@ const Internships = ({data,setData}) => {
     useEffect(()=>{
       if(authUser)
       fetchAppliedOppurtunities()
-    },[])
+    },[appliedOppurtunities])
     const fetchAppliedOppurtunities=async()=>{
       try {
         const response =await axios.get(`/api/applied-oppurtunities`)
